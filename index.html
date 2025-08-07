@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sua central de TV e streaming sob demanda. Planos para cliente final e revendedores.">
+  <title>Troço TV - TV e Streaming Sob Demanda</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007BFF;
+      --primary-dark: #0056b3;
+      --secondary: #F8F9FA;
+      --dark: #212529;
+      --light: #FFFFFF;
+      --text: #495057;
+      --gray: #6C757D;
+      --font-family: 'Inter', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-family); }
+    body { background-color: var(--secondary); color: var(--text); line-height: 1.6; text-align: center; display: flex; flex-direction: column; align-items: center; padding: 24px 0; }
+    .container { max-width: 1100px; width: 100%; margin: 20px; background: var(--light); border-radius: 24px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); overflow: hidden; border: 1px solid #E5E7EB; }
+    .hero-container { position: relative; height: 400px; display: flex; align-items: center; justify-content: center; background-color: var(--dark); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 123, 255, 0.85) 0%, rgba(0, 86, 179, 0.8) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 20px; }
+    h1 { font-size: 3.2rem; font-weight: 700; color: white; text-shadow: 0 2px 6px rgba(0,0,0,0.2); margin-bottom: 1rem; }
+    .tagline { font-size: 1.2rem; font-weight: 400; margin-bottom: 1.5rem; opacity: 0.9; color: white; max-width: 550px; }
+    .device-support { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 8px 16px; border-radius: 9999px; font-size: 0.9rem; font-weight: 500; backdrop-filter: blur(5px); }
+    .content { padding: 60px 40px; }
+    .section { margin-bottom: 80px; }
+    h2 { font-size: 2.5rem; color: var(--dark); margin: 0 0 1rem 0; font-weight: 700; }
+    .section-description { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto 40px auto; }
+    .intro { font-size: 1.15rem; margin: 0 auto 50px; max-width: 700px; line-height: 1.8; color: var(--gray); }
+    .highlight { background-color: var(--secondary); padding: 2px 8px; border-radius: 6px; font-weight: 600; color: var(--primary); }
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 50px; }
+    .plan-card { background: var(--light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; text-align: left; }
+    .plan-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0, 123, 255, 0.1); border-color: var(--primary); }
+    .plan-card.popular { border: 2px solid var(--primary); transform: scale(1.03); }
+    .plan-card.popular::before { content: "MAIS POPULAR"; position: absolute; top: 16px; right: -45px; background: var(--primary); color: var(--light); padding: 6px 40px; font-size: 0.8rem; font-weight: 600; transform: rotate(45deg); }
+    .plan-name { font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem; }
+    .plan-price { font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; display: flex; align-items: baseline; gap: 4px; }
+    .plan-price .integer { font-size: 3rem; line-height: 1; }
+    .plan-price .decimal { font-size: 1.5rem; color: var(--gray); }
+    .plan-duration { color: var(--gray); margin-bottom: 24px; font-size: 1rem; }
+    .benefits-list { margin-top: auto; margin-bottom: 24px; text-align: left; list-style: none; padding: 0; }
+    .benefits-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: var(--text); }
+    .benefits-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--primary); font-size: 0.9rem; }
+    .btn { display: block; width: 100%; padding: 14px 28px; background: var(--primary); color: var(--light); text-decoration: none; border-radius: 12px; font-weight: 600; transition: all 0.2s ease-in-out; border: 2px solid transparent; cursor: pointer; text-align: center; font-size: 1rem; }
+    .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .compatibility { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-top: 40px; }
+    .operator { display: flex; align-items: center; gap: 12px; background: var(--light); padding: 12px 24px; border-radius: 12px; border: 1px solid #E5E7EB; }
+    .operator i { font-size: 1.8rem; color: var(--primary); }
+    .operator span { font-weight: 600; color: var(--dark); }
+    .how-it-works, .working-hours { background: var(--light); padding: 40px; border-radius: 16px; border: 1px solid #E5E7EB; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 30px; }
+    .step { text-align: left; }
+    .step-number { width: 48px; height: 48px; background: var(--secondary); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem; }
+    .step p { font-weight: 600; font-size: 1.1rem; }
+    .hours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 24px; }
+    .hours-group { background: var(--secondary); padding: 24px; border-radius: 12px; text-align: center; }
+    .hours-group strong { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; color: var(--dark); margin-bottom: 1rem; justify-content: center; }
+    .hours-group div { display: flex; align-items: center; gap: 8px; color: var(--gray); justify-content: center; }
+    .social-links { display: flex; justify-content: center; gap: 16px; }
+    .social-links a { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--secondary); color: var(--gray); font-size: 1.2rem; transition: all 0.3s ease; }
+    .social-links a:hover { background: var(--primary); color: var(--light); transform: translateY(-3px); }
+    footer { padding: 40px; background: var(--dark); color: #9CA3AF; margin-top: 40px; }
+    .footer-logo { font-size: 1.5rem; font-weight: 700; color: var(--light); margin-bottom: 1rem; }
+    .footer-logo span { color: var(--primary); }
+    .footer-credit { margin-top: 24px; padding-top: 24px; border-top: 1px solid #374151; font-size: 0.875rem; color: var(--gray); }
+    @media (max-width: 768px) { h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } .content { padding: 40px 20px; } .plans-grid { grid-template-columns: 1fr; max-width: 380px; } .plan-card.popular { transform: scale(1); } }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="hero-container">
+      <div class="hero-overlay">
+        <h1 id="hero-title"></h1>
+        <p id="hero-tagline" class="tagline"></p>
+        <div class="device-support"><i class="fas fa-tv"></i> Compatível com a sua TV</div>
+      </div>
+    </div>
+    
+    <div class="content">
+
+      <div class="section">
+        <p id="intro-text" class="intro"></p>
+        <div class="compatibility">
+          <div class="operator"><i class="fas fa-tv"></i><span>Smart TV</span></div>
+          <div class="operator"><i class="fas fa-box"></i><span>TV Box</span></div>
+          <div class="operator"><i class="fas fa-mobile-alt"></i><span>Celular</span></div>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>Nossos Planos</h2>
+        <p class="section-description">Escolha o plano ideal para você e tenha acesso ao melhor conteúdo de TV e streaming.</p>
+        <div id="plans-grid-pessoal" class="plans-grid"></div>
+      </div>
+      
+      <div id="reseller-section" class="section">
+        <h2>Seja um Revendedor</h2>
+        <p class="section-description">Tenha seu próprio negócio com nosso painel de revendas. Compre créditos e comece a lucrar.</p>
+        <div id="plans-grid-revenda" class="plans-grid"></div>
+      </div>
+
+      <div id="how-it-works-section" class="section">
+        <div class="how-it-works">
+          <h2>Como Funciona?</h2>
+          <div id="how-it-works-container" class="steps"></div>
+        </div>
+      </div>
+      
+      <div id="free-trial-section" class="section">
+          <h2 id="free-trial-title"></h2>
+          <p id="free-trial-text" class="section-description"></p>
+          <a id="whatsapp-link-teste-gratis" href="" class="btn" style="max-width: 250px; margin: 0 auto;">Pedir Teste Grátis</a>
+      </div>
+      
+      <div id="working-hours-container" class="section working-hours"></div>
+    </div>
+    
+    <footer>
+      <div id="footer-logo-container" class="footer-logo"></div>
+      <div id="social-links-container" class="social-links" style="margin-top: 24px; margin-bottom: 24px;"></div>
+      <p id="footer-copyright-text" class="footer-info"></p>
+      <p class="footer-credit">Feito por <a href="https://trocodev.site" target="_blank" rel="noopener noreferrer">Troço Dev</a></p>
+    </footer>
+  </div>
+  
+  <script>
+    // Os dados do settings.json foram movidos para aqui
+    const data = {
+      "hero_title": "Troço TV",
+      "hero_tagline": "Sua central de TV e streaming sob demanda.",
+      "intro_text": "Tenha acesso aos <strong class=\"highlight\">melhores canais</strong> e a um catálogo completo de conteúdo sob demanda. <strong class=\"highlight\">Estabilidade, qualidade e o melhor preço!</strong>",
+      "visibility": {
+        "reseller_section": true,
+        "referral_program": true,
+        "how_it_works_section": true,
+        "free_trial_section": true
+      },
+      "cores": {
+        "primaria": "#007BFF",
+        "primaria_escura": "#0056b3",
+        "secundaria": "#FFFFFF"
+      },
+      "links": {
+        "whatsapp": "https://wa.me/558481518164",
+        "whatsapp_number": "(84) 8151-8164",
+        "telegram": "https://t.me/suporte_trocodigital"
+      },
+      "planos_pessoais": [
+        { "nome": "Mensal", "preco": 25, "duracao": "Acesso por 30 dias", "popular": false },
+        { "nome": "Trimestral", "preco": 40, "duracao": "Acesso por 3 meses", "popular": true },
+        { "nome": "Semestral", "preco": 55, "duracao": "Acesso por 6 meses", "popular": false },
+        { "nome": "Anual", "preco": 75, "duracao": "Acesso por 12 meses", "popular": false }
+      ],
+      "planos_revenda": [
+        { "nome": "10 Créditos", "preco": 5, "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Painel de gerenciamento" },
+        { "nome": "25 Créditos", "preco": 12, "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Suporte para revenda" },
+        { "nome": "50 Créditos", "preco": 25, "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Ideal para começar" },
+        { "nome": "100 Créditos", "preco": 50, "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Melhor custo-benefício" }
+      ],
+      "how_it_works_steps": [
+        { "text": "Escolha seu plano preferido" },
+        { "text": "Entre em contacto para o pagamento" },
+        { "text": "Receba seu acesso e as instruções" },
+        { "text": "Instale em seu dispositivo e aproveite!" }
+      ],
+      "free_trial": {
+        "title": "Experimente Grátis",
+        "text": "Oferecemos um teste grátis para você comprovar nossa qualidade antes de assinar."
+      },
+      "horario_atendimento": [
+        { "titulo": "Segunda a Domingo", "icone": "fas fa-calendar-day", "horarios": [{ "horario": "09h às 22h" }] }
+      ],
+      "redes_sociais": [
+        { "nome": "Telegram", "url": "https://t.me/suporte_trocodigital", "icone": "fab fa-telegram" }
+      ],
+      "footer": {
+        "logo_text": "TROÇO TV",
+        "copyright_text": "Conectando você ao entretenimento. © 2025 Troço TV - Todos os direitos reservados."
+      }
+    };
+
+    function carregarConteudo() {
+      try {
+        if (data.cores) {
+          document.documentElement.style.setProperty('--primary', data.cores.primaria);
+          document.documentElement.style.setProperty('--primary-dark', data.cores.primaria_escura);
+          document.documentElement.style.setProperty('--light', data.cores.secundaria);
+          document.documentElement.style.setProperty('--dark', '#212529');
+        }
+
+        document.getElementById('hero-title').textContent = data.hero_title;
+        document.getElementById('hero-tagline').textContent = data.hero_tagline;
+        document.getElementById('intro-text').innerHTML = data.intro_text;
+        
+        const whatsappBaseLink = data.links.whatsapp;
+        document.getElementById('whatsapp-link-teste-gratis').href = `${whatsappBaseLink}?text=Olá! Gostaria de um teste grátis para o serviço de TV.`;
+        
+        if (data.visibility) {
+            document.getElementById('reseller-section').style.display = data.visibility.reseller_section ? 'block' : 'none';
+            document.getElementById('how-it-works-section').style.display = data.visibility.how_it_works_section ? 'block' : 'none';
+            document.getElementById('free-trial-section').style.display = data.visibility.free_trial_section ? 'block' : 'none';
+        }
+
+        const generateHTML = (containerId, dataArray, htmlTemplate) => {
+          const container = document.getElementById(containerId);
+          if (!container) return;
+          container.innerHTML = (dataArray && dataArray.length > 0) ? dataArray.map(htmlTemplate).join('') : '';
+        };
+
+        generateHTML('plans-grid-pessoal', data.planos_pessoais, plano => {
+          const popularClass = plano.popular ? 'popular' : '';
+          const precoPartes = parseFloat(plano.preco).toFixed(2).split('.');
+          return `<div class="plan-card ${popularClass}"><div class="plan-name">${plano.nome}</div><div class="plan-price"><span class="currency">R$</span><span class="integer">${precoPartes[0]}</span><span class="decimal">,${precoPartes[1]}</span></div><div class="plan-duration">${plano.duracao}</div><ul class="benefits-list"><li>Canais ao vivo</li><li>Conteúdo sob demanda</li><li>Qualidade HD/FHD</li><li>Suporte especializado</li></ul><a href="${whatsappBaseLink}?text=Olá! Quero assinar o Plano ${plano.nome} de R$${plano.preco.toFixed(2)}" class="btn">Assinar Agora</a></div>`;
+        });
+        
+        generateHTML('plans-grid-revenda', data.planos_revenda, plano => {
+          const beneficiosHTML = plano.beneficios.split(';').map(b => `<li>${b.trim()}</li>`).join('');
+          return `<div class="plan-card"><div class="plan-name">${plano.nome}</div><div class="plan-price"><span class="currency">R$</span><span class="integer">${parseInt(plano.preco)}</span><span class="decimal">,00</span></div><ul class="benefits-list">${beneficiosHTML}</ul><a href="${whatsappBaseLink}?text=Olá! Tenho interesse no plano de revenda de ${plano.nome} por R$${plano.preco}" class="btn">Comprar Créditos</a></div>`;
+        });
+        
+        const howItWorksContainer = document.getElementById('how-it-works-container');
+        if (howItWorksContainer && data.how_it_works_steps) {
+            howItWorksContainer.innerHTML = data.how_it_works_steps.map((step, index) => `<div class="step"><div class="step-number">${index + 1}</div><p>${step.text}</p></div>`).join('');
+        }
+
+        if (data.free_trial) {
+            document.getElementById('free-trial-title').textContent = data.free_trial.title;
+            document.getElementById('free-trial-text').textContent = data.free_trial.text;
+        }
+
+        const workingHoursContainer = document.getElementById('working-hours-container');
+        if (data.horario_atendimento && data.horario_atendimento.length > 0) {
+            workingHoursContainer.innerHTML = '<h2>Horário de Atendimento</h2><div class="hours-grid"></div>';
+            const hoursGrid = workingHoursContainer.querySelector('.hours-grid');
+            hoursGrid.innerHTML = data.horario_atendimento.map(group => {
+                const horariosHTML = group.horarios.map(h => `<div><i class="fas fa-clock"></i> ${h.horario}</div>`).join('');
+                return `<div class="hours-group"><strong><i class="${group.icone}"></i> ${group.titulo}</strong>${horariosHTML}</div>`;
+            }).join('');
+        }
+        
+        generateHTML('social-links-container', data.redes_sociais, link => `<a href="${link.url}" target="_blank" title="${link.nome}"><i class="${link.icone}"></i></a>`);
+        
+        const footerLogoContainer = document.getElementById('footer-logo-container');
+        if (data.footer && data.footer.logo_text) {
+            footerLogoContainer.innerHTML = `${data.footer.logo_text}`;
+        }
+
+        const footerCopyright = document.getElementById('footer-copyright-text');
+        if (footerCopyright && data.footer) {
+            footerCopyright.textContent = data.footer.copyright_text;
+        }
+
+      } catch (error) {
+        console.error("Não foi possível carregar o conteúdo dinâmico:", error);
+        document.body.innerHTML = '<h1>Erro ao carregar a página. Verifique o console para mais detalhes.</h1>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', carregarConteudo);
+  </script>
+</body>
+</html>

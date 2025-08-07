@@ -1,0 +1,115 @@
+{
+  "hero_title": "Troço TV",
+  "hero_tagline": "Sua central de TV e streaming sob demanda.",
+  "intro_text": "Tenha acesso aos <strong class=\"highlight\">melhores canais</strong> e a um catálogo completo de conteúdo sob demanda. <strong class=\"highlight\">Estabilidade, qualidade e o melhor preço!</strong>",
+  "visibility": {
+    "reseller_section": true,
+    "referral_program": true,
+    "how_it_works_section": true,
+    "free_trial_section": true
+  },
+  "cores": {
+    "primaria": "#007BFF",
+    "primaria_escura": "#0056b3",
+    "secundaria": "#FFFFFF"
+  },
+  "links": {
+    "whatsapp": "https://wa.me/558481518164",
+    "whatsapp_number": "(84) 8151-8164",
+    "telegram": "https://t.me/suporte_trocodigital",
+    "pix_key": "trocotvpagamentos@gmail.com"
+  },
+  "planos_pessoais": [
+    {
+      "nome": "Mensal",
+      "preco": 25,
+      "duracao": "Acesso por 30 dias",
+      "popular": false
+    },
+    {
+      "nome": "Trimestral",
+      "preco": 40,
+      "duracao": "Acesso por 3 meses",
+      "popular": true
+    },
+    {
+      "nome": "Semestral",
+      "preco": 55,
+      "duracao": "Acesso por 6 meses",
+      "popular": false
+    },
+    {
+      "nome": "Anual",
+      "preco": 75,
+      "duracao": "Acesso por 12 meses",
+      "popular": false
+    }
+  ],
+  "planos_revenda": [
+    {
+      "nome": "10 Créditos",
+      "preco": 5,
+      "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Painel de gerenciamento"
+    },
+    {
+      "nome": "25 Créditos",
+      "preco": 12,
+      "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Suporte para revenda"
+    },
+    {
+      "nome": "50 Créditos",
+      "preco": 25,
+      "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Ideal para começar"
+    },
+    {
+      "nome": "100 Créditos",
+      "preco": 50,
+      "beneficios": "Pagamento único;Cada crédito = 1 ativação mensal;Melhor custo-benefício"
+    }
+  ],
+  "how_it_works_steps": [
+    {
+      "text": "Escolha seu plano preferido"
+    },
+    {
+      "text": "Faça o pagamento via PIX"
+    },
+    {
+      "text": "Receba seu acesso e as instruções"
+    },
+    {
+      "text": "Instale em seu dispositivo e aproveite!"
+    }
+  ],
+  "free_trial": {
+    "title": "Experimente Grátis",
+    "text": "Oferecemos um teste grátis para você comprovar nossa qualidade antes de assinar."
+  },
+  "referral_program": {
+    "title": "📢 Programa de Indicação Troço TV",
+    "tagline": "Indique um amigo e ganhe descontos!"
+  },
+  "horario_atendimento": [
+    {
+      "titulo": "Segunda a Domingo",
+      "icone": "fas fa-calendar-day",
+      "horarios": [
+        {
+          "horario": "09h às 22h"
+        }
+      ]
+    }
+  ],
+  "redes_sociais": [
+    {
+      "nome": "Telegram",
+      "url": "https://t.me/suporte_trocodigital",
+      "icone": "fab fa-telegram"
+    }
+  ],
+  "footer": {
+    "logo_url": "",
+    "logo_text": "TROÇO TV",
+    "copyright_text": "Conectando você ao entretenimento. © 2025 Troço TV - Todos os direitos reservados."
+  }
+}
