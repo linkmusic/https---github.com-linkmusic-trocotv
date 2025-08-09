@@ -2,98 +2,14 @@
   "hero_title": "Troço TV",
   "hero_tagline": "Sua central de TV e streaming sob demanda.",
   "links": {
-    "whatsapp": "https://wa.me/558481518164"
+    "whatsapp": "https://wa.me/558481518164",
+    "telegram": "https://t.me/suporte_trocodigital"
   },
   "footer": {
     "logo_text": "Troço TV",
     "copyright_text": "© 2025 Troço TV. Todos os direitos reservados."
   },
   "redes_sociais": [
-    {
-      "nome": "WhatsApp",
-      "url": "https://wa.me/558481518164",
-      "icone": "fab fa-whatsapp"
-    },
-    {
-      "nome": "Telegram",
-      "url": "https://t.me/suporte_trocodigital",
-      "icone": "fab fa-telegram"
-    }
-  ],
-  "how_it_works_steps": [
-    { "text": "Escolha seu plano preferido" },
-    { "text": "Entre em contato para o pagamento ou teste grátis" },
-    { "text": "Receba seu acesso e as instruções" },
-    { "text": "Instale e aproveite em minutos!" }
-  ],
-  "planos_pessoais": [
-    {
-      "nome": "Mensal",
-      "preco": 9.99,
-      "duracao": "Acesso por 30 dias",
-      "popular": false
-    },
-    {
-      "nome": "Trimestral",
-      "preco": 14.99,
-      "duracao": "Acesso por 3 meses",
-      "popular": true
-    },
-    {
-      "nome": "Semestral",
-      "preco": 19.99,
-      "duracao": "Acesso por 6 meses",
-      "popular": false
-    },
-    {
-      "nome": "Anual",
-      "preco": 24.99,
-      "duracao": "Acesso por 12 meses",
-      "popular": false
-    }
-  ],
-  "planos_revenda_mensal": [
-    {
-      "nome": "100 acessos",
-      "preco": 59.99,
-      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
-    },
-    {
-      "nome": "200 acessos",
-      "preco": 69.99,
-      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
-    },
-    {
-      "nome": "300 acessos",
-      "preco": 119.99,
-      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
-    },
-    {
-      "nome": "1.000 acessos",
-      "preco": 139.99,
-      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
-    },
-    {
-      "nome": "2.000 acessos",
-      "preco": 179.99,
-      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
-    },
-    {
-  "hero_title": "Troço TV",
-  "hero_tagline": "Sua central de TV e streaming sob demanda.",
-  "links": {
-    "whatsapp": "https://wa.me/558481518164"
-  },
-  "footer": {
-    "logo_text": "Troço TV",
-    "copyright_text": "© 2025 Troço TV. Todos os direitos reservados."
-  },
-  "redes_sociais": [
-    {
-      "nome": "WhatsApp",
-      "url": "https://wa.me/558481518164",
-      "icone": "fab fa-whatsapp"
-    },
     {
       "nome": "Telegram",
       "url": "https://t.me/suporte_trocodigital",
@@ -163,3 +79,5 @@
       "preco": 239.99,
       "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
     }
+  ]
+}
