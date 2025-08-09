@@ -18,10 +18,15 @@
   ],
   "how_it_works_steps": [
     { "text": "Escolha seu plano preferido" },
-    { "text": "Entre em contato para o pagamento ou teste grátis" },
+    { "text": "Entre em contacto para o pagamento" },
     { "text": "Receba seu acesso e as instruções" },
     { "text": "Instale e aproveite em minutos!" }
   ],
+  "free_trial": {
+    "visibility": true,
+    "title": "Experimente Grátis",
+    "text": "Não tem a certeza? Peça um teste grátis e comprove a qualidade do nosso serviço antes de assinar."
+  },
   "planos_pessoais": [
     {
       "nome": "Mensal",

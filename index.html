@@ -37,6 +37,8 @@
         .hero-tagline { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem auto; color: rgba(255, 255, 255, 0.9); }
         .btn { display: inline-block; padding: 14px 32px; background: #FFF; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px var(--shadow-color); }
         .btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px var(--shadow-color); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary);}
+        .btn-outline:hover { background: var(--primary); color: #FFF; }
         .section { margin-bottom: 100px; }
         h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
         .section-description { max-width: 700px; margin: 0 auto 50px auto; color: var(--text-dark); }
@@ -85,6 +87,11 @@
                 <p class="section-description">Pague por mês e ative seus acessos com um painel exclusivo para gerir seus clientes.</p>
                 <div id="plans-grid-revenda" class="plans-grid"></div>
             </section>
+            <section id="free-trial-section" class="section" style="display: none;">
+                <h2 id="free-trial-title"></h2>
+                <p id="free-trial-text" class="section-description"></p>
+                <a id="whatsapp-link-teste-gratis" href="#" class="btn btn-outline" style="max-width: 280px;">Quero o meu teste!</a>
+            </section>
             <section id="como-funciona" class="section">
                 <div class="feature-box">
                     <h2>Como Começar?</h2>
@@ -128,6 +135,15 @@
                         const beneficiosHTML = plano.beneficios.split(';').map(b => `<li><i class="fas fa-check-circle"></i>${b.trim()}</li>`).join('');
                         return `<div class="plan-card"><h3 class="plan-name">${plano.nome}</h3><div class="plan-price">${precoFormatado}<span class="decimal">/mês</span></div><ul class="benefits-list">${beneficiosHTML}</ul><a href="${linkWhatsapp}" class="btn btn-plan">Contratar Revenda</a></div>`;
                     }).join('');
+                }
+
+                if (data.free_trial && data.free_trial.visibility) {
+                    const trialSection = document.getElementById('free-trial-section');
+                    trialSection.style.display = 'block';
+                    document.getElementById('free-trial-title').textContent = data.free_trial.title;
+                    document.getElementById('free-trial-text').textContent = data.free_trial.text;
+                    const trialLink = document.getElementById('whatsapp-link-teste-gratis');
+                    trialLink.href = `${data.links.whatsapp}?text=Olá! Gostaria de um teste grátis para a Troço TV.`;
                 }
                 
                 const howItWorksContainer = document.getElementById('how-it-works-container');

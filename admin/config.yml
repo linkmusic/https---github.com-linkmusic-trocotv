@@ -39,6 +39,13 @@ collections:
             widget: "list"
             fields:
               - { label: "Texto do Passo", name: "text", widget: "string" }
+          - label: "Secção 'Experimente Grátis'"
+            name: "free_trial"
+            widget: "object"
+            fields:
+              - { label: "Mostrar esta secção?", name: "visibility", widget: "boolean", default: true }
+              - { label: "Título da Secção", name: "title", widget: "string" }
+              - { label: "Texto Descritivo", name: "text", widget: "string" }
           - label: "Planos Pessoais"
             name: "planos_pessoais"
             widget: "list"
