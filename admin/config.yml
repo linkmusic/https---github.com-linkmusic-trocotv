@@ -1,96 +1,60 @@
 backend:
-  name: git-gateway # Usado para autenticação com Netlify/GitHub
-  branch: main # O branch principal do seu repositório
+  name: git-gateway
+  branch: main
 
-site_url: https://trocotv.shop # O URL do seu site
+site_url: https://trocotv.shop # URL do seu site
 
-media_folder: "images/uploads" # Pasta para guardar imagens
-public_folder: "/images/uploads" # Caminho público para as imagens
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-# Define as coleções de conteúdo editáveis
 collections:
   - name: "configuracoes"
-    label: "Configurações do Site"
-    description: "Edite aqui todos os textos, preços e links do site da Troço TV."
+    label: "Configurações do Site Troço TV"
+    description: "Edite aqui todos os textos, preços e links do site."
     files:
       - name: "geral"
-        label: "Opções Gerais e Textos"
-        file: "_data/settings.json" # O painel irá editar este ficheiro
+        label: "Conteúdo Principal"
+        file: "_data/settings.json"
         fields:
           - { label: "Título Principal", name: "hero_title", widget: "string" }
-          - { label: "Slogan abaixo do Título", name: "hero_tagline", widget: "string" }
-          - { label: "Texto de Introdução", name: "intro_text", widget: "text" }
+          - { label: "Slogan (texto abaixo do título)", name: "hero_tagline", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Link do WhatsApp para Contato", name: "whatsapp", widget: "string" }
           - label: "Rodapé"
             name: "footer"
             widget: "object"
             fields:
-              - { label: "Texto do Logótipo", name: "logo_text", widget: "string" }
+              - { label: "Texto do Logo no Rodapé", name: "logo_text", widget: "string" }
               - { label: "Texto de Copyright", name: "copyright_text", widget: "string" }
-          - label: "Visibilidade das Secções"
-            name: "visibility"
-            widget: "object"
-            fields:
-              - { label: "Mostrar Secção de Revenda?", name: "reseller_section", widget: "boolean", default: true }
-              - { label: "Mostrar Secção 'Como Funciona'?", name: "how_it_works_section", widget: "boolean", default: true }
-              - { label: "Mostrar Secção 'Experimente Grátis'?", name: "free_trial_section", widget: "boolean", default: true }
-          - label: "Cores do Site"
-            name: "cores"
-            widget: "object"
-            fields:
-              - { label: "Cor Principal (Azul)", name: "primaria", widget: "color" }
-              - { label: "Cor Principal Escura (para hover)", name: "primaria_escura", widget: "color" }
-              - { label: "Cor Secundária (Fundo)", name: "secundaria", widget: "color" }
-          - label: "Links Gerais"
-            name: "links"
-            widget: "object"
-            fields:
-              - { label: "Link de Contacto WhatsApp", name: "whatsapp", widget: "string" }
-              - { label: "Número de Telefone (para texto)", name: "whatsapp_number", widget: "string" }
-              - { label: "Link de Suporte Telegram", name: "telegram", widget: "string" }
-          - label: "Horário de Atendimento"
-            name: "horario_atendimento"
-            widget: "list"
-            fields:
-              - { label: "Título (ex: Segunda a Sexta)", name: "titulo", widget: "string" }
-              - { label: "Ícone do Título (ex: fas fa-calendar-day)", name: "icone", widget: "string" }
-              - label: "Horários"
-                name: "horarios"
-                widget: "list"
-                fields: 
-                  - { label: "Horário (ex: 09h às 22h)", name: "horario", widget: "string" }
           - label: "Redes Sociais"
             name: "redes_sociais"
             widget: "list"
             fields:
-              - { label: "Nome da Rede", name: "nome", widget: "string" }
+              - { label: "Nome da Rede (ex: Instagram)", name: "nome", widget: "string" }
               - { label: "Link Completo (URL)", name: "url", widget: "string" }
               - { label: "Ícone (ex: fab fa-telegram)", name: "icone", widget: "string" }
-          - label: "Secção 'Como Funciona'"
+          - label: "Passos 'Como Funciona'"
             name: "how_it_works_steps"
             widget: "list"
-            summary: "{{fields.text}}"
             fields:
               - { label: "Texto do Passo", name: "text", widget: "string" }
-          - label: "Secção 'Experimente Grátis'"
-            name: "free_trial"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Texto Descritivo", name: "text", widget: "string" }
-          - label: "Planos para Cliente Final"
+          - label: "Planos para Assinantes"
             name: "planos_pessoais"
             widget: "list"
             summary: "{{fields.nome}} - R$ {{fields.preco}}"
             fields:
-              - { label: "Nome", name: "nome", widget: "string" }
-              - { label: "Preço", name: "preco", widget: "number" }
-              - { label: "Duração", name: "duracao", widget: "string" }
-              - { label: "Popular?", name: "popular", widget: "boolean", default: false }
-          - label: "Planos de Revenda (Créditos)"
+              - { label: "Nome do Plano", name: "nome", widget: "string" }
+              - { label: "Preço (use ponto para decimais, ex: 29.90)", name: "preco", widget: "number", value_type: "float" }
+              - { label: "Duração (ex: Acesso por 30 dias)", name: "duracao", widget: "string" }
+              - { label: "É o mais popular?", name: "popular", widget: "boolean", default: false }
+          - label: "Planos de Revenda (por Créditos)"
             name: "planos_revenda"
             widget: "list"
             summary: "{{fields.nome}} - R$ {{fields.preco}}"
             fields:
-              - { label: "Nome", name: "nome", widget: "string" }
-              - { label: "Preço", name: "preco", widget: "number" }
+              - { label: "Nome do Pacote (ex: 10 Créditos)", name: "nome", widget: "string" }
+              - { label: "Preço do Pacote", name: "preco", widget: "number", value_type: "float" }
               - { label: "Benefícios (separados por ';')", name: "beneficios", widget: "string" }
