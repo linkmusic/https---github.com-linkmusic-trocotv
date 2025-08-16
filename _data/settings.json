@@ -55,6 +55,21 @@
   ],
   "planos_revenda_mensal": [
     {
+      "nome": "10 acessos",
+      "preco": 5.99,
+      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
+    },
+    {
+      "nome": "25 acessos",
+      "preco": 14.99,
+      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
+    },
+    {
+      "nome": "50 acessos",
+      "preco": 29.99,
+      "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
+    },
+    {
       "nome": "100 acessos",
       "preco": 59.99,
       "beneficios": "Painel exclusivo;Suporte prioritário;Ativação imediata"
